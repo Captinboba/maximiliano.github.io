@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Maximiliano Creates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Add three.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Add OBJ loader for .obj files -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+    <style>
+        :root {
+            --bg-tan: #F4ECD8;
+            --text-primary: #1A293D;
+            --text-secondary: #4A648A;
+            --accent-yellow: #FFC700;
+            --accent-blue: #254A8D;
+            --border-color: #A2B5CD;
+        }
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--bg-tan);
+            color: var(--text-primary);
+        }
+        .font-display { font-family: 'MedievalSharp', cursive; }
+        .section { @apply py-20 sm:py-24; }
+        .section-title { @apply font-display text-4xl sm:text-5xl font-bold text-center mb-16 tracking-wider; color: var(--text-primary); }
+        .main-header {
+             background-color: var(--bg-tan);
+             background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+             border-bottom: none;
+        }
+        .nav-link {
+             @apply font-display text-lg transition-colors duration-300;
+             color: var(--text-primary);
+        }
+        .nav-link:hover {
+            color: var(--accent-blue);
+            text-shadow: none;
+        }
+        .cta-button {
+            @apply inline-block font-display text-lg tracking-wider px-8 py-3 rounded-md transition-all duration-300;
+            background-color: var(--accent-blue);
+            color: var(--bg-tan);
+            border: 2px solid #193361;
+            box-shadow: 0 0 10px var(--accent-blue);
+            text-shadow: 1px 1px 2px #193361;
+        }
+        .cta-button:hover {
+            background-color: #3a65b3;
+            transform: scale(1.05);
+        }
+        .card {
+            background-color: rgba(244, 236, 216, 0.5);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+            @apply overflow-hidden transform transition-all duration-300 flex flex-col;
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 10px 10px 20px rgba(0,0,0,0.3);
+            border-color: var(--accent-yellow);
+        }
+        .scroll-panel { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .sticky-panel { position: sticky; top: 0; z-index: 1; background-color: var(--bg-tan); background-image: url('https://www.transparenttextures.com/patterns/old-paper.png'); }
+        .overlay-panel { position: relative; z-index: 2; background-color: var(--bg-tan); background-image: url('https://www.transparenttextures.com/patterns/old-paper.png'); }
+        #title-canvas-container { width: 100%; max-width: 600px; height: 200px; cursor: grab; margin: 0 auto; }
+        #about.overlay-panel { background-color: #15203E; background-image: none; }
+        #about .section-title, #about .text-lg { color: var(--bg-tan); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="main-header sticky top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#hero" class="font-display text-2xl md:text-4xl font-bold" style="color: var(--text-primary);">Maximiliano Creates</a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#services" class="nav-link">Creative Services</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-800 hover:bg-gray-200">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="#about" class="block py-2 px-4 text-sm nav-link text-center hover:bg-gray-200/60 rounded-md">About</a>
+                <a href="#projects" class="block py-2 px-4 text-sm nav-link text-center hover:bg-gray-200/60 rounded-md">Projects</a>
+                <a href="#services" class="block py-2 px-4 text-sm nav-link text-center hover:bg-gray-200/60 rounded-md">Creative Services</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="section scroll-panel sticky-panel">
+            <div class="container mx-auto px-6 text-center">
+                <div id="title-canvas-container"></div>
+                <p class="text-xl mt-8" style="color: var(--text-secondary);">
+                    I conjure powerful applications and delightful user experiences from the ether of logic.
+                </p>
+                <a href="#projects" class="cta-button mt-8">
+                    View My Projects
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="section scroll-panel overlay-panel">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="text-lg leading-relaxed">
+                        <p class="mb-4">
+                            Well met! I am a weaver of the digital arcane, shaping raw code into constructs of purpose and beauty. My passion lies in mastering the esoteric languages of development to solve puzzles and build wonders.
+                        </p>
+                        <p>
+                            When not casting spells at my terminal, I consult the stars, explore ancient ruins, and seek knowledge in all its forms. The world is a grimoire, and I am an eager student.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section overlay-panel">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Projects</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="card"><div class="p-6"><h3 class="font-display text-2xl font-bold mb-2" style="color: var(--accent-blue);">The Astral Market</h3><p class="mb-4" style="color: var(--text-secondary);">A bustling bazaar powered by React and Node.js.</p><div class="flex space-x-4 mt-auto"><a href="#" class="font-bold hover:underline" style="color: var(--accent-blue);">Scry the Live Site</a></div></div></div>
+                    <div class="card"><div class="p-6"><h3 class="font-display text-2xl font-bold mb-2" style="color: var(--accent-blue);">The Orb of Collaboration</h3><p class="mb-4" style="color: var(--text-secondary);">A seeing stone for guilds to track quests in unison.</p><div class="flex space-x-4 mt-auto"><a href="#" class="font-bold hover:underline" style="color: var(--accent-blue);">Scry the Live Site</a></div></div></div>
+                    <div class="card"><div class="p-6"><h3 class="font-display text-2xl font-bold mb-2" style="color: var(--accent-blue);">This Spellbook</h3><p class="mb-4" style="color: var(--text-secondary);">My personal portfolio, summoned with HTML and Tailwind CSS.</p><div class="flex space-x-4 mt-auto"><a href="#" class="font-bold hover:underline" style="color: var(--accent-blue);">Scry the Live Site</a></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section overlay-panel">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Creative Services</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="card"><div class="p-6"><h3 class="font-display text-2xl font-bold mb-2" style="color: var(--accent-blue);">Web Development</h3><p class="mb-4" style="color: var(--text-secondary);">Forging powerful and responsive websites from scratch.</p></div></div>
+                    <div class="card"><div class="p-6"><h3 class="font-display text-2xl font-bold mb-2" style="color: var(--accent-blue);">3D Modeling & Animation</h3><p class="mb-4" style="color: var(--text-secondary);">Breathing life into digital clay for games and film.</p></div></div>
+                    <div class="card"><div class="p-6"><h3 class="font-display text-2xl font-bold mb-2" style="color: var(--accent-blue);">Game Development</h3><p class="mb-4" style="color: var(--text-secondary);">Constructing interactive realms in Unreal Engine.</p></div></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-10 overlay-panel">
+        <div class="container mx-auto px-6 text-center" style="color: var(--text-secondary);">
+            <p>Conjured by Maximiliano in a tower of digital mysteries.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                if (!mobileMenu.classList.contains('hidden')) { mobileMenu.classList.add('hidden'); }
+            });
+        });
+
+        // --- 3D Title Script ---
+        const container = document.getElementById('title-canvas-container');
+        let scene, camera, renderer, titleGroup;
+
+        function init3D() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.z = 10;
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(renderer.domElement);
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+            scene.add(ambientLight);
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+            directionalLight.position.set(5, 10, 7.5);
+            scene.add(directionalLight);
+            titleGroup = new THREE.Group();
+            scene.add(titleGroup);
+            const material = new THREE.MeshStandardMaterial({ color: new THREE.Color("var(--accent-blue)"), metalness: 0.6, roughness: 0.4 });
+            const loader = new THREE.OBJLoader();
+            let modelsLoaded = 0;
+            const totalModels = 2;
+            let maximilianoModel, createsModel;
+            const onAllModelsLoaded = () => {
+                const box1 = new THREE.Box3().setFromObject(maximilianoModel);
+                const box2 = new THREE.Box3().setFromObject(createsModel);
+                const size1 = new THREE.Vector3();
+                const size2 = new THREE.Vector3();
+                box1.getSize(size1);
+                box2.getSize(size2);
+                const spacing = 1.5;
+                maximilianoModel.position.x = -(size1.x / 2) - (spacing / 2);
+                createsModel.position.x = (size2.x / 2) + (spacing / 2);
+                titleGroup.add(maximilianoModel);
+                titleGroup.add(createsModel);
+                const groupBox = new THREE.Box3().setFromObject(titleGroup);
+                const groupSize = new THREE.Vector3();
+                groupBox.getSize(groupSize);
+                const desiredWidth = 18;
+                const scaleFactor = desiredWidth / groupSize.x;
+                titleGroup.scale.set(scaleFactor, scaleFactor, scaleFactor);
+                const groupCenter = new THREE.Vector3();
+                new THREE.Box3().setFromObject(titleGroup).getCenter(groupCenter);
+                titleGroup.position.sub(groupCenter);
+            };
+            
+            // *** IMPORTANT CHANGE IS HERE ***
+            // Load models from file paths instead of embedded data
+            loader.load('Maximiliano Title.obj', (object) => {
+                object.traverse(child => { if (child.isMesh) child.material = material; });
+                maximilianoModel = object;
+                modelsLoaded++;
+                if (modelsLoaded === totalModels) onAllModelsLoaded();
+            });
+            loader.load('Creates Title1.obj', (object) => {
+                object.traverse(child => { if (child.isMesh) child.material = material; });
+                createsModel = object;
+                modelsLoaded++;
+                if (modelsLoaded === totalModels) onAllModelsLoaded();
+            });
+
+            window.addEventListener('resize', onWindowResize, false);
+            container.addEventListener('mousedown', onMouseDown, false);
+            container.addEventListener('mouseup', onMouseUp, false);
+            container.addEventListener('mousemove', onMouseMove, false);
+        }
+        let isDragging = false;
+        let previousMousePosition = { x: 0, y: 0 };
+        function onMouseDown(event) { isDragging = true; container.style.cursor = 'grabbing'; }
+        function onMouseUp(event) { isDragging = false; container.style.cursor = 'grab'; }
+        function onMouseMove(event) {
+            if (!isDragging || !titleGroup) return;
+            const deltaMove = { x: event.offsetX - previousMousePosition.x, y: event.offsetY - previousMousePosition.y };
+            titleGroup.rotation.y += deltaMove.x * 0.01;
+            titleGroup.rotation.x += deltaMove.y * 0.01;
+            previousMousePosition = { x: event.offsetX, y: event.offsetY };
+        }
+        function onWindowResize() {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+        function animate3D() {
+            requestAnimationFrame(animate3D);
+            if (titleGroup && !isDragging) { titleGroup.rotation.y += 0.002; }
+            renderer.render(scene, camera);
+        }
+        init3D();
+        animate3D();
+    </script>
+</body>
+</html>
