@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Maximiliano Creates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* --- FONT LOADING --- */
+        @font-face {
+            font-family: 'Sirius';
+            src: url('SiriusSCTOT-Reg.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Magic Retro';
+            src: url('Magic Retro.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Sirius Bold';
+            src: url('SiriusTOT-Bol.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Lato-Regular';
+            src: url('Lato-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --bg-tan: #F4ECD8;
+            --text-primary: #1A293D;
+            --text-secondary: #4A648A;
+            --accent-yellow: #FFC700;
+            --accent-blue: #254A8D;
+            --border-color: #A2B5CD;
+            --magic-gold: #B58E4F;
+            --footer-bg: #0D1425;
+        }
+        html {
+            cursor: url('Gold Star.svg') 12 12, auto;
+        }
+        body {
+            font-family: 'Sirius', sans-serif;
+            background-color: var(--bg-tan);
+            color: var(--text-primary);
+        }
+        .font-display { font-family: 'Sirius', sans-serif; }
+        .font-magic { font-family: 'Magic Retro', cursive; }
+        .font-body { font-family: 'Lato-Regular', sans-serif; }
+
+        .main-header {
+             background-color: var(--bg-tan);
+             background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+             border-bottom: none;
+        }
+        .nav-link {
+             @apply font-display text-2xl md:text-3xl transition-colors duration-300;
+             color: #15203E;
+        }
+        .nav-link:hover {
+            color: var(--magic-gold);
+            text-shadow: none;
+        }
+        .section {
+            background-color: #15203E;
+            min-height: calc(100vh - 88px); /* Adjust based on header height */
+            display: flex;
+            align-items: center;
+        }
+        footer {
+            background-color: var(--footer-bg);
+            color: white;
+        }
+        .cta-button {
+            @apply inline-block font-display tracking-wider text-center whitespace-nowrap transition-all duration-300;
+            font-size: 0.9rem;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--magic-gold);
+            color: var(--text-primary);
+            border: 2px solid var(--magic-gold);
+            box-shadow: 0 0 10px var(--magic-gold);
+            border-radius: 8px; /* More rectangular */
+        }
+        .cta-button:hover {
+            background-color: #A47D45; /* Slightly darker gold on hover */
+            border-color: #A47D45;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header id="main-header" class="main-header sticky top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between md:justify-center">
+                <a href="index.html" class="nav-link md:hidden">Maximiliano Creates</a>
+                <nav class="hidden md:flex w-full justify-around items-center">
+                    <a href="index.html" class="nav-link">Maximiliano Creates</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="services.html" class="nav-link">Creative Services</a>
+                    <a href="projects.html" class="nav-link">Projects</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-800 hover:bg-gray-200">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="about.html" class="block py-2 px-4 nav-link text-center hover:bg-gray-200/60 rounded-md">About</a>
+                <a href="services.html" class="block py-2 px-4 nav-link text-center hover:bg-gray-200/60 rounded-md">Creative Services</a>
+                <a href="projects.html" class="block py-2 px-4 nav-link text-center hover:bg-gray-200/60 rounded-md">Projects</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- About Me Section -->
+        <section id="about" class="section pt-16 sm:pt-20 pb-20 sm:pb-24">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-12">
+                    <div class="md:w-2/3 text-center md:text-left">
+                        <h2 id="about-title" class="font-display font-bold leading-none whitespace-nowrap mb-8 transition-all duration-500" style="color: var(--magic-gold); font-size: clamp(2.5rem, 10vw, 9rem);">About</h2>
+                        <div class="text-lg leading-relaxed font-body" style="color: var(--bg-tan);">
+                            <p class="mb-4">
+                                Hello I am Maximiliano Randy Hernandez a San Diego born and raised artist that specializes in 3D art which includes; 3D Modeling, 3D Printing, 3D Game Development, VR, AR, and Animation.
+                            </p>
+                            <p class="mb-4">
+                                My journey into 3D modeling began with a love for its boundless creative potential. This led me to a course on virtual environment creation, where I mastered using 3D models within a VR setting, specifically with Unreal Engine. I applied these skills during an internship at the Qualcomm Institute at UCSD, contributing to an educational VR experience. Currently, my focus has shifted from VR to traditional game development, though I continue to leverage Unreal Engine's powerful toolset.
+                            </p>
+                            <p class="mb-4">
+                                I earned a BA in Interdisciplinary Computing and the Arts (ICAM) from Marshall College at the University of California San Diego. ICAM integrates art and technology, with core courses in fabrication, electronics, and art history. My dedication to my artistic work extends beyond formal education, as I consistently explore modern industry software and techniques.
+                            </p>
+                            <p class="mb-4">
+                                My career goal is to be an electronic arts educator and to share my skills to empower the next generation of creative thinkers. I am currently looking to do different 3D-based projects to gain more experience and refine my skills. Should my creative services be of interest, please do not hesitate to make contact via telephone or email.
+                            </p>
+                            <div class="mt-8 flex justify-center">
+                                <a href="Hernandez, Maximiliano Resume.pdf" download class="cta-button">
+                                    View Resume (PDF)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3 flex justify-center md:pt-24">
+                        <div class="w-full max-w-sm" style="filter: drop-shadow(10px 10px 15px #5E6A7E);">
+                            <img src="IMG_3230.png" alt="Maximiliano" class="w-full h-auto rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/600x800/15203E/F4ECD8?text=IMG_3230.png';">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col sm:flex-row justify-between items-center text-center gap-4">
+                <div class="sm:text-left">
+                    <p>Email: <span class="underline">maximiliano@maximilianocreates.com</span></p>
+                    <p>Phone: (619) 736-0786</p>
+                </div>
+                <div class="flex gap-x-4">
+                    <a href="https://www.linkedin.com/in/maximiliano-hernandez-creates" target="_blank" rel="noopener noreferrer" class="transition-opacity hover:opacity-75">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/maximilianocreates/" target="_blank" rel="noopener noreferrer" class="transition-opacity hover:opacity-75">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.585-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.585.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>Created by Maximiliano Randy Hernandez in a tower of digital mysteries.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- Script to change font after a delay ---
+            setTimeout(() => {
+                const aboutTitle = document.getElementById('about-title');
+                if (aboutTitle) {
+                    aboutTitle.classList.add('font-magic');
+                }
+            }, 8000); // 8000 milliseconds = 8 seconds
+        });
+    </script>
+
+</body>
+</html>
