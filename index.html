@@ -154,13 +154,19 @@
         /* Animation Styles */
         .service-item {
             opacity: 0;
-            /* Transition removed for direct JS control */
         }
         .slide-from-left {
             transform: translateX(-100%);
         }
         .slide-from-right {
             transform: translateX(100%);
+        }
+        /* On screens smaller than 640px, make the items visible and static */
+        @media (max-width: 639px) {
+            .service-item {
+                opacity: 1;
+                transform: none;
+            }
         }
         
         /* Project Star Carousel */
@@ -251,7 +257,7 @@
                     <h1 class="font-display font-bold whitespace-nowrap flex items-end justify-center" style="color: #15203E; font-size: clamp(2.5rem, 10vw, 9rem);">
                         <span>Maximiliano&nbsp;</span><span id="creates-title" class="transition-all duration-500">Creates</span>
                     </h1>
-                    <div class="mt-[15vh]">
+                    <div class="mt-[30vh] sm:mt-[15vh]">
                         <p class="text-lg sm:text-xl mt-8 max-w-md sm:max-w-xl mx-auto font-body" style="color: #15203E; text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);">
                             I transform visions into reality using digital softwares, coding expertise, and visual design.
                         </p>
@@ -275,12 +281,12 @@
         </section>
 
         <!-- About Me Section (Overlay Panel) -->
-        <section id="about" class="overlay-panel flex items-center justify-center min-h-[80vh] sm:min-h-[90vh] py-12">
+        <section id="about" class="overlay-panel flex items-center justify-center min-h-[70vh] sm:min-h-[90vh] py-12">
             <div class="container mx-auto px-6">
                 <div class="max-w-6xl mx-auto flex flex-row items-center gap-4 md:gap-12">
-                    <div class="w-1/2 md:w-2/3 text-left">
+                    <div class="w-2/3 text-left">
                         <h2 class="font-display font-bold leading-none whitespace-nowrap mb-8" style="color: var(--bg-tan); font-size: clamp(2rem, 5vw, 3rem);">Get to know me</h2>
-                        <div class="text-lg md:text-xl leading-relaxed" style="color: var(--bg-tan);">
+                        <div class="font-body text-base md:text-xl leading-relaxed" style="color: var(--bg-tan);">
                             <p class="mb-4">
                                 I’m Maximiliano Randy Hernandez, a San Diego based 3D artist specializing in bringing your visions into reality. I fell in love with 3D art because of its limitless potential, with its ability to create anything imaginable.
                             </p>
@@ -289,7 +295,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="w-1/2 md:w-1/3 flex justify-center">
+                    <div class="w-1/3 flex justify-center">
                         <div class="w-full max-w-sm" style="filter: drop-shadow(10px 10px 15px #5E6A7E);">
                             <img src="IMG_3230.png" alt="Maximiliano" class="w-full h-auto rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/600x800/15203E/F4ECD8?text=IMG_3230.png';">
                         </div>
@@ -299,12 +305,12 @@
         </section>
 
         <!-- Creative Services Section -->
-        <section id="services" class="scroll-panel overlay-panel items-start min-h-[60vh] sm:min-h-screen">
-            <div class="container mx-auto px-6 text-center" style="padding-top: 20px;">
+        <section id="services" class="overlay-panel">
+            <div class="container mx-auto px-6 text-center" style="padding-top: 20px; padding-bottom: 30px;">
                 <h2 class="font-display font-bold leading-none whitespace-nowrap" style="color: #B58E4F; font-size: clamp(1rem, 3vw, 2rem);">
                     Creative Services
                 </h2>
-                <div id="services-list" class="flex flex-col items-center" style="margin-top: 60px; font-family: 'Sirius Bold', sans-serif; color: #B58E4F; font-size: clamp(2rem, 8vw, 7rem); gap: 1rem;">
+                <div id="services-list" class="mt-[30px] sm:mt-[60px] flex flex-col items-center" style="font-family: 'Sirius Bold', sans-serif; color: #B58E4F; font-size: clamp(2rem, 8vw, 7rem); gap: 1rem;">
                     <span class="service-item slide-from-left uppercase whitespace-nowrap leading-none">3D Modeling</span>
                     <span class="service-item slide-from-right uppercase whitespace-nowrap leading-none">3D Printing</span>
                     <span class="service-item slide-from-left uppercase whitespace-nowrap leading-none">Animation</span>
@@ -315,19 +321,19 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="overlay-panel items-start pb-24">
+        <section id="projects" class="overlay-panel items-start pb-8 sm:pb-24">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="font-display font-bold leading-none whitespace-nowrap" style="color: var(--bg-tan); font-size: clamp(2rem, 5vw, 3rem); padding-top: 3vh;">
                     Projects
                 </h2>
-                <div class="relative w-full flex justify-center items-center mt-8 mb-8" style="min-height: 550px;">
+                <div class="relative w-full flex justify-center items-center mt-8 mb-8 min-h-[250px] sm:min-h-[550px]">
                     <!-- Left Arrow -->
                     <button id="prev-star" class="absolute left-0 z-20 p-2 text-white/50 hover:text-white transition-colors">
                         <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                     </button>
 
                     <!-- Star Carousel Container -->
-                    <div id="star-carousel" class="relative w-[206px] h-[275px] sm:w-[400px] sm:h-[533px]">
+                    <div id="star-carousel" class="relative w-[180px] h-[240px] sm:w-[400px] sm:h-[533px]">
                         <div class="project-star-item w-full h-full">
                             <svg class="w-full h-full" viewBox="0 0 18 24" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
                                 <defs>
@@ -439,11 +445,11 @@
 
             <!-- Image container, positioned absolutely to the right -->
             <div class="absolute inset-y-0 right-0 w-1/3 flex items-start justify-end pointer-events-none opacity-70">
-                <img src="Hand of Gold.jpg" 
+                <img src="Hand of Gold.png" 
                      alt="A golden hand reaching upwards" 
-                     class="w-auto h-4/5 sm:h-5/6 max-w-none" 
+                     class="w-auto h-3/5 sm:h-5/6 max-w-none" 
                      style="transform-origin: top right; transform: rotate(-90deg) translateY(-80%) translateX(0);"
-                     onerror="this.onerror=null;this.src='Hand of Gold.png';">
+                     onerror="this.onerror=null;this.src='https://placehold.co/600x800/0D1425/B58E4F?text=Hand+of+Gold.png';">
             </div>
         </div>
         <!-- Original footer content -->
@@ -487,10 +493,20 @@
             const servicesList = document.getElementById('services-list');
             if (servicesList) {
                 const serviceItems = servicesList.querySelectorAll('.service-item');
+                
+                if (window.innerWidth < 640) {
+                    serviceItems.forEach(item => {
+                        item.style.opacity = '';
+                        item.style.transform = '';
+                    });
+                    return; 
+                }
+
+                // Animation logic for larger screens
                 const rect = servicesList.getBoundingClientRect();
                 const viewportHeight = window.innerHeight;
 
-                const progress = 1.3 - (rect.top / (viewportHeight / 1.5));
+                const progress = 1.4 - (rect.top / (viewportHeight / 1.5));
                 const clampedProgress = Math.max(0, Math.min(1, progress));
 
                 serviceItems.forEach(item => {
@@ -617,7 +633,11 @@
         });
 
         // --- Event listeners for resize and scroll ---
-        window.addEventListener('resize', adjustHeroHeight);
+        window.addEventListener('resize', () => {
+            adjustHeroHeight();
+            handleScrollAnimation();
+        });
+
 
         window.addEventListener('scroll', () => {
             handleScrollAnimation();

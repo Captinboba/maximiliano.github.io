@@ -111,13 +111,24 @@
             position: absolute;
             color: var(--magic-gold);
         }
+
+        .dynamic-padding {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .dynamic-padding {
+                padding-left: clamp(3rem, calc(24.096vw - 8.566rem), 8rem);
+                padding-right: clamp(3rem, calc(24.096vw - 8.566rem), 8rem);
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Header & Navigation -->
     <header id="main-header" class="main-header sticky top-0 left-0 right-0 z-50">
-        <div class="container mx-auto px-6 py-4">
+        <div class="container mx-auto dynamic-padding py-4">
             <div class="flex items-center justify-between md:justify-center">
                 <a href="index.html" class="nav-link md:hidden">Maximiliano Creates</a>
                 <nav class="hidden md:flex w-full justify-around items-center">
@@ -144,7 +155,7 @@
             <div id="celestial-field" class="absolute inset-0 pointer-events-none z-0">
                 <!-- Celestial objects will be injected here by JavaScript -->
             </div>
-            <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="container mx-auto dynamic-padding text-center relative z-10">
                 <h1 id="services-title" class="font-display font-bold leading-none whitespace-nowrap transition-all duration-500" style="color: #B58E4F; font-size: clamp(2.5rem, 10vw, 9rem); padding-bottom: 3vh;">
                     Creative Services
                 </h1>
@@ -154,11 +165,11 @@
         <!-- 3D Modeling Section -->
         <section class="service-section flex justify-center md:justify-start">
             <div class="w-full flex flex-col md:flex-row items-stretch">
-                <div class="w-full md:w-3/5 px-6 md:px-12 text-center md:text-left">
+                <div class="w-full md:w-3/5 dynamic-padding text-center md:text-left">
                     <h2 class="service-title" style="color: #B58E4F;">3D Modeling</h2>
                     <p class="max-w-3xl mx-auto md:mx-0 text-lg leading-relaxed font-body">I begin by listing all necessary project assets, then describe and sketch my ideas. I sculpt or model using various software based on style/complexity. For printing, I export to a slicer; otherwise I texture in Adobe Substance Painter.</p>
                 </div>
-                <div class="w-full md:w-2/5 p-12 hidden md:block">
+                <div class="w-full md:w-2/5 dynamic-padding hidden md:block">
                     <img src="Tools.png" alt="3D Modeling Tools" class="rounded-lg h-full object-contain">
                 </div>
             </div>
@@ -167,10 +178,10 @@
         <!-- 3D Printing Section -->
         <section class="service-section flex justify-center md:justify-end">
              <div class="w-full flex items-stretch">
-                <div class="w-2/5 p-12 hidden md:block">
+                <div class="w-2/5 dynamic-padding hidden md:block">
                      <img src="Printers.png" alt="3D Printers" class="rounded-lg h-full object-contain">
                 </div>
-                <div class="w-full md:w-3/5 px-6 md:px-12 text-center md:text-right">
+                <div class="w-full md:w-3/5 dynamic-padding text-center md:text-right">
                     <h2 class="service-title" style="color: #B58E4F;">3D Printing</h2>
                     <p class="max-w-3xl ml-auto text-lg leading-relaxed font-body">I start by creating 3D models, adjusting tolerance, and then exporting as a .stl for slicing. Using slicing software, I add supports, set size, and arrange items for printing. I primarily use an Elegoo Saturn 4 Ultra Resin Printer for smooth, detailed 12K prints. For larger or less detailed items, I use a Flashforge Adventurer 5M Pro. Post-printing, I remove supports, cure, and sand.</p>
                 </div>
@@ -179,7 +190,7 @@
 
         <!-- Animation Section -->
         <section class="service-section flex justify-center md:justify-start">
-            <div class="w-full md:w-3/5 px-6 md:px-12 text-center md:text-left">
+            <div class="w-full md:w-3/5 dynamic-padding text-center md:text-left">
                 <h2 class="service-title" style="color: #B58E4F;">Animation</h2>
                 <p class="max-w-3xl mx-auto md:mx-0 text-lg leading-relaxed font-body">My animation process begins with sketching an idea and gathering all necessary models. Next, I arrange the scene, incorporating lighting and effects to enrich the visual. Once these elements are perfected, I prepare the moving models through weight painting and rigging. Finally, I focus on motion design, integrate the last assets, and refine any remaining details.</p>
             </div>
@@ -187,7 +198,7 @@
 
         <!-- Graphic Design Section -->
         <section class="service-section flex justify-center md:justify-end">
-            <div class="w-full md:w-3/5 px-6 md:px-12 text-center md:text-right">
+            <div class="w-full md:w-3/5 dynamic-padding text-center md:text-right">
                 <h2 class="service-title" style="color: #B58E4F;">Graphic Design</h2>
                 <p class="max-w-3xl mx-auto md:mx-0 text-lg leading-relaxed font-body">I began graphic design in VIS 41: Design Communication, learning poster creation with Adobe Creative Cloud. I further developed these skills during my internship at Muir College at UCSD, designing posters and flyers for events and maintaining brand consistency. I continue to practice and refine my graphic design craft by creating graphics and poster mock-ups.</p>
             </div>
@@ -196,11 +207,11 @@
         <!-- Game Development Section -->
         <section class="service-section flex justify-center md:justify-start">
             <div class="w-full flex items-stretch">
-                <div class="w-full md:w-3/5 px-6 md:px-12 text-center md:text-left">
+                <div class="w-full md:w-1/2 dynamic-padding text-center md:text-left">
                     <h2 class="service-title" style="color: #B58E4F;">Game Development</h2>
                     <p class="max-w-3xl mr-auto text-lg leading-relaxed font-body pb-5">I develop games using Unreal Engine. My journey began in VIS 143: Virtual Environments, creating VR games with my own assets. This led to an internship at UCSD's Qualcomm Institute, where I contributed to Nanoverse. An educational VR experience about the Covid-19 Vaccine, using the Unreal Engine and a mix of Fab.com and self-made assets. I continue personal projects to stay current with Unreal Engine updates.</p>
                 </div>
-                <div class="w-2/5 p-12 hidden md:block">
+                <div class="w-1/2 dynamic-padding hidden md:block">
                     <img src="Unreal Engine.png" alt="Unreal Engine" class="rounded-lg h-full object-contain">
                 </div>
             </div>
@@ -209,7 +220,7 @@
 
     <!-- Footer -->
     <footer class="py-10">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto dynamic-padding">
             <div class="flex flex-col sm:flex-row justify-between items-center text-center gap-4">
                 <div class="sm:text-left">
                     <p>Email: <span class="underline">maximiliano@maximilianocreates.com</span></p>
@@ -298,4 +309,3 @@
 
 </body>
 </html>
-
