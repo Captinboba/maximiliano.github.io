@@ -212,9 +212,6 @@
             .sticky-panel {
                 position: static;
             }
-            .floating-celestial {
-                animation: none;
-            }
         }
 
     </style>
@@ -598,7 +595,7 @@
 
             // --- Celestial object generation logic ---
             const celestialField = document.getElementById('celestial-field');
-            if (celestialField) {
+            if (celestialField && window.innerWidth >= 640) {
                 const objectCount = 24;
                 const gridCells = Math.ceil(Math.sqrt(objectCount));
                 const cellWidth = celestialField.clientWidth / gridCells;
